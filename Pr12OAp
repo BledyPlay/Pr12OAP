@@ -1,0 +1,35 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        double x = ...;
+        double y = ...;
+        double z = ...;
+
+        Console.WriteLine("Method with function: " + CalculateWithFunction(x, y, z));
+        CalculateWithProcedure(x, y, z, out double result);
+        Console.WriteLine("Method with procedure: " + result);
+    }
+
+    static double CalculateWithFunction(double x, double y, double z)
+    {
+        return (Min(Min(x, Math.Exp(y)), z) + Min(Min(y, Math.Pow(2, x)), Math.Pow(z, 2))) / Min(Min(z, 20), 3 * x);
+    }
+
+    static void CalculateWithProcedure(double x, double y, double z, out double result)
+    {
+        result = (Min(Min(x, Math.Exp(y)), z) + Min(Min(y, Math.Pow(2, x)), Math.Pow(z, 2))) / Min(Min(z, 20), 3 * x);
+    }
+
+    static double Min(double a, double b)
+    {
+        return Math.Min(a, b);
+    }
+
+    static double Min(double a, double b, double c)
+    {
+        return Math.Min(a, Math.Min(b, c));
+    }
+}
